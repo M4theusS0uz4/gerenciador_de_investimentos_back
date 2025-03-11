@@ -25,13 +25,17 @@ Este é um sistema de gerenciamento de investimentos pessoais que permite ao usu
 
 4. Criar arquivo .env na raiz do projeto com as configurações do seu banco de dados:
    ```
-   PG_USER=seu_usuario
-   PG_HOST=localhost
-   PG_DATABASE_NAME=nome_do_banco
-   PG_PASSWORD=sua_senha
-   PG_PORT=porta_configurada
+   DATABASE_URL="postgresql://SEUHOST:SUASENHA@localhost:SUAPORTA/NOMEDOSEUBANCO?schema=public"
    
-5. Compile os arquivos TypeScript:
+5. Gerar cliente primas:
+   ```bash
+   npx prisma generate
+   
+6. Rodar migrações (Criar banco e tabelas):
+   ```bash
+   npx prisma migrate dev
+
+7. Compile os arquivos TypeScript:
    ```bash
    npm run build
 
