@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,24 +7,67 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
-    id_user Int @id @default(autoincrement())
-    username string
-    email string @unique
-    createdAt DateTime @default(now())
-    balance float @default(0)
-    transaction Transaction[]
+model category {
+  id_category Int       @id(map: "categories_pkey") @default(autoincrement())
+  name        String    @unique(map: "categories_name_key") @db.VarChar(100)
+  expense     expense[]
 }
 
-model transactions {
-    id_transaction Int @id @default(autoincrement())
-    id_user Int
-    transaction_type string
-    investiment_id Int
-    amount float
-    description string
-    transaction_date DateTime @default(now())
+model expense {
+  id_expense   Int       @id(map: "expenses_pkey") @default(autoincrement())
+  user_id      Int?
+  category_id  Int?
+  amount       Decimal   @db.Decimal(15, 2)
+  description  String?
+  expense_date DateTime? @default(now()) @db.Timestamp(6)
+  category     category? @relation(fields: [category_id], references: [id_category], onDelete: NoAction, onUpdate: NoAction, map: "expenses_category_id_fkey")
+  users        users?    @relation(fields: [user_id], references: [id_user], onDelete: Cascade, onUpdate: NoAction, map: "expenses_user_id_fkey")
+}
 
-    user User @relation(fields: [id_user], references: [id])
-    investiment Investiment @relation(fields: [investiment_id], references: [id_investiment]
+model investiment {
+  id_investment Int           @id(map: "investments_pkey") @default(autoincrement())
+  user_id       Int?
+  name          String        @db.VarChar(255)
+  amount        Decimal       @db.Decimal(15, 2)
+  target_amount Decimal       @db.Decimal(15, 2)
+  objective     String?
+  image_url     String?       @db.VarChar(255)
+  created_at    DateTime?     @default(now()) @db.Timestamp(6)
+  users         users?        @relation(fields: [user_id], references: [id_user], onDelete: Cascade, onUpdate: NoAction, map: "investments_user_id_fkey")
+  transaction   transaction[]
+}
+
+model log {
+  id_log      Int       @id(map: "logs_pkey") @default(autoincrement())
+  user_id     Int?
+  log_type    String?   @db.VarChar(50)
+  description String?
+  details     Json?
+  created_at  DateTime? @default(now()) @db.Timestamp(6)
+  users       users?    @relation(fields: [user_id], references: [id_user], onUpdate: NoAction, map: "logs_user_id_fkey")
+}
+
+model transaction {
+  id_transaction   Int          @id(map: "transactions_pkey") @default(autoincrement())
+  user_id          Int?
+  transaction_type String?      @db.VarChar(50)
+  investment_id    Int?
+  amount           Decimal      @db.Decimal(15, 2)
+  description      String?
+  transaction_date DateTime?    @default(now()) @db.Timestamp(6)
+  investiment      investiment? @relation(fields: [investment_id], references: [id_investment], onDelete: NoAction, onUpdate: NoAction, map: "transactions_investment_id_fkey")
+  users            users?       @relation(fields: [user_id], references: [id_user], onDelete: Cascade, onUpdate: NoAction, map: "transactions_user_id_fkey")
+}
+
+model users {
+  id_user     Int           @id @default(autoincrement())
+  username    String        @unique @db.VarChar(255)
+  email       String        @unique(map: "unique_email") @db.VarChar(255)
+  password    String        @db.VarChar(255)
+  created_at  DateTime?     @default(now()) @db.Timestamp(6)
+  balance     Decimal?      @default(0.00) @db.Decimal(15, 2)
+  expense     expense[]
+  investiment investiment[]
+  log         log[]
+  transaction transaction[]
 }

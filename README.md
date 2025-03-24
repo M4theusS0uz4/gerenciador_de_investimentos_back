@@ -38,4 +38,8 @@ Este é um sistema de gerenciamento de investimentos pessoais que permite ao usu
 7. Compile os arquivos TypeScript:
    ```bash
    npm run build
+   
+8. Rodar servidor de desenvolvimento:
+   ```bash
+   npm run dev
 
