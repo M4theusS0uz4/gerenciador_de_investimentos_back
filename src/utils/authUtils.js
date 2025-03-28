@@ -11,7 +11,6 @@ const key = Buffer.from(ENCRYPTION_KEY, 'hex');
 //Function that encrypts the password TH29
 export const hashPassword = async (password) => {
     const saltRounds = 10;
-    console.log(key)
     return await bcrypt.hash(password,saltRounds);
 }
 //Function that compares hashed password with hashed password

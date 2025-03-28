@@ -2,11 +2,11 @@
   "name": "gerenciador-investimentos",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "ts-node src/app.ts",
-    "dev": "ts-node-dev --respawn --transpileOnly src/app.ts"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -23,11 +23,6 @@
     "prisma": "^6.5.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "@types/jsonwebtoken": "^9.0.9",
-    "@types/node": "^22.13.10",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.8.2"
+    "nodemon": "^2.0.15"
   }
 }
