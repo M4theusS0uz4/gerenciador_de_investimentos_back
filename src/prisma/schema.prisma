@@ -24,7 +24,7 @@ model expense {
   user        user?    @relation(fields: [user_id], references: [id_user], onDelete: Cascade, onUpdate: NoAction, map: "expenses_user_id_fkey")
 }
 
-model investiment {
+model investment {
   id_investment Int           @id(map: "investments_pkey") @default(autoincrement())
   user_id       Int?
   name          String        @db.VarChar(255)
@@ -55,7 +55,7 @@ model transaction {
   amount           Decimal      @db.Decimal(15, 2)
   description      String?
   transaction_date DateTime?    @default(now()) @db.Timestamp(6)
-  investiment      investiment? @relation(fields: [investment_id], references: [id_investment], onDelete: NoAction, onUpdate: NoAction, map: "transactions_investment_id_fkey")
+  investment      investment? @relation(fields: [investment_id], references: [id_investment], onDelete: NoAction, onUpdate: NoAction, map: "transactions_investment_id_fkey")
   user            user?       @relation(fields: [user_id], references: [id_user], onDelete: Cascade, onUpdate: NoAction, map: "transactions_user_id_fkey")
 }
 
@@ -67,7 +67,7 @@ model user {
   created_at  DateTime?     @default(now()) @db.Timestamp(6)
   balance     Decimal?      @default(0.00) @db.Decimal(15, 2)
   expense     expense[]
-  investiment investiment[]
+  investment investment[]
   log         log[]
   transaction transaction[]
 }
