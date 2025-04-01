@@ -1,15 +1,14 @@
 import express from 'express';
 import axios from 'axios';
-import dotenv from 'dotenv';
+import config from '../config/env.js'
 
-dotenv.config();
 
 const authRoutes = express.Router();
 const userRoutes = express.Router();
 
 // URLs dos microserviços
-const AUTH_SERVICE_URL = `http://localhost:${process.env.AUTH_SERVICE_PORT}`;  
-const USER_SERVICE_URL = `http://localhost:${process.env.USER_SERVICE_PORT}`;  
+const AUTH_SERVICE_URL = `http://localhost:${config.AUTH_SERVICE_PORT}`;  
+const USER_SERVICE_URL = `http://localhost:${config.USER_SERVICE_PORT}`;  
 
 // Roteamento para o login
 authRoutes.post('/login', async (req, res) => {
@@ -17,6 +16,7 @@ authRoutes.post('/login', async (req, res) => {
         const response = await axios.post(`${AUTH_SERVICE_URL}/login`, req.body);
         res.status(response.status).json(response.data);  
     } catch (error) {
+        console.log(error)
         res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
     }
 });
