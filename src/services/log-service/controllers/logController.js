@@ -1,4 +1,5 @@
 import prisma  from '../../../prisma/prismaClient.js';
+import logger from '../utils/logger.js';
 
 export async function createLog(data){
     try{
@@ -9,6 +10,7 @@ export async function createLog(data){
                 description: data.description,
                 details: data.details
             }
+            //logger.info
         });
     }catch(error){
         console.log(error)
