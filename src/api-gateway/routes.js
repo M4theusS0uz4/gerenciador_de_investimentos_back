@@ -16,8 +16,7 @@ authRoutes.post('/login', async (req, res) => {
         const response = await axios.post(`${AUTH_SERVICE_URL}/login`, req.body);
         res.status(response.status).json(response.data);  
     } catch (error) {
-        console.log(error)
-        res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
+        res.status(error.response?.status || 500 || 401).json({ message: error.response?.data.message || 'Internal Server Error' });
     }
 });
 

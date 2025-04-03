@@ -10,10 +10,10 @@ export async function createLog(data){
                 description: data.description,
                 details: data.details
             }
-            //logger.info
         });
+        logger.info(`Log registrado no banco: ${data.description}`)
     }catch(error){
-        console.log(error)
+        logger.error(`Erro ao salvar log no banco: ${error.message}`)
     }
 }
 
