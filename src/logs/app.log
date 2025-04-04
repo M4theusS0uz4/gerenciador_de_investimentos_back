@@ -1,0 +1,70 @@
+2025-04-03 20:31:57 [INFO] : Tentativa de login, email usuário:undefined
+2025-04-03 20:35:58 [INFO] : Tentativa de login, email usuário:matheusrocham.ms@gmail.com
+2025-04-03 20:38:38 [INFO] : Tentativa de login, email usuário:matheusrocham.ms@gmail.com
+2025-04-03 20:39:07 [INFO] : Tentativa de login, email usuário:matheusrocham.ms@gmail.com
+2025-04-03 20:40:55 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 20:42:26 [ERROR] : Erro no API Gateway: Expected double-quoted property name in JSON at position 62 (line 5 column 1) Stack: SyntaxError: Expected double-quoted property name in JSON at position 62 (line 5 column 1)
+    at JSON.parse (<anonymous>)
+    at parse (C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\body-parser\lib\types\json.js:92:19)
+    at C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at invokeCallback (C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+2025-04-03 20:42:35 [INFO] : Login realizado! Email: matheusrocham.ms@gmail.com
+2025-04-03 20:53:01 [INFO] : Usuário Registrado! Email: teste@gmail.com
+2025-04-03 20:54:18 [ERROR] : Erro no API Gateway: Expected double-quoted property name in JSON at position 50 (line 4 column 1) Stack: SyntaxError: Expected double-quoted property name in JSON at position 50 (line 4 column 1)
+    at JSON.parse (<anonymous>)
+    at parse (C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\body-parser\lib\types\json.js:92:19)
+    at C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at invokeCallback (C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\theus\OneDrive\Área de Trabalho\gerenciador_investimentos_back\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+2025-04-03 20:54:22 [INFO] : Login realizado! Email: teste@gmail.com
+2025-04-03 22:28:18 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:29:12 [INFO] : Usuário Registrado! Email: teste@gmail;com
+2025-04-03 22:33:41 [INFO] : Usuário Registrado! Email: teste2@gmail.com
+2025-04-03 22:40:59 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:40:59 [ERROR] : Erro ao salvar log no banco: 
+Invalid `prisma.log.create()` invocation:
+
+
+error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.
+  -->  schema.prisma:7
+   | 
+ 6 |   provider = "postgresql"
+ 7 |   url      = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+2025-04-03 22:43:06 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:43:07 [INFO] : Log registrado no banco: undefined
+2025-04-03 22:46:28 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:46:28 [INFO] : Log registrado no banco: undefined
+2025-04-03 22:48:52 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:48:52 [INFO] : Log registrado no banco: undefined
+2025-04-03 22:49:43 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:49:43 [INFO] : Log registrado no banco: undefined
+2025-04-03 22:50:54 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:50:55 [INFO] : Log registrado no banco: undefined
+2025-04-03 22:52:17 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:52:17 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-03 22:53:29 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:53:29 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-03 22:56:24 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:56:24 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-03 22:57:33 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-03 22:57:33 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-03 22:58:41 [INFO] : Usuário Registrado! Email: matheusrocham.2ms@gmail.com
+2025-04-03 22:58:41 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-03 22:59:11 [INFO] : Usuário Registrado! Email: matheusrocham.2ms@gmail.com
+2025-04-03 22:59:11 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-03 23:00:10 [INFO] : Usuário Registrado! Email: matheusrocham.2ms@gmail.com
+2025-04-03 23:00:10 [INFO] : Log registrado no banco: User registered sucessfully

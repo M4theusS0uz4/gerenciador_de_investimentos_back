@@ -1,4 +1,16 @@
-import winston from "winston";
+import fs from'fs'
+import path  from 'path'
+import winston  from 'winston'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const logDir = path.resolve(__dirname, '../../../', 'logs');
+
+
+if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true });
+}
+
 
 const logger = winston.createLogger({
     level:'info',
@@ -8,7 +20,7 @@ const logger = winston.createLogger({
     ),
     transports: [
         new winston.transports.Console(),
-        new winston.transports.File({filename: '../../logs/app.log'})
+        new winston.transports.File({filename: path.join(logDir,'app.log')})
 
     ]
 });

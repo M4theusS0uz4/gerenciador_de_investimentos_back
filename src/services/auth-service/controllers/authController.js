@@ -1,6 +1,5 @@
 import { hashPassword, hashEmail, comparePassword, generateToken } from '../utils/authUtils.js';
 import prisma from '../../../prisma/prismaClient.js';
-import { getClientInfo } from '../../log-service/utils/getClientInfo.js';
 import logger from '../../log-service/utils/logger.js'
 
 export const registerUser = async (req,res) => {
@@ -15,19 +14,20 @@ export const registerUser = async (req,res) => {
     });
 
     if (newUser) {
-        logger.info(`Usuário Registrado! Email: ${email}`)
-        res.status(200);
-    }else{
+        logger.info(`Usuário Registrado! Email: ${email}`);
+        res.status(200).json({ message: "User registered successfully.", id:newUser.id_user });
+    } else {
+        logger.info(`Erro ao registrar usuário!`);
+        res.status(500).json({ message: "Failed to register user." });
     }
 };
 
 export const login = async (req, res) => {
     const { email, password } = req.body;
-    logger.info(`Tentativa de login, email usuário:${email}`)
     if (!email || !password) {
+        logger.info(`Tentativa de login, email usuário:${email}`)
         return res.status(400).json({ message: "Email and password are required." });
     }
-
     try {
         const user = await prisma.user.findUnique({
             where: {
@@ -42,7 +42,7 @@ export const login = async (req, res) => {
         const isPasswordValid = await comparePassword(password, user.password);
         
         if (!isPasswordValid) {
-            logger.info(`Tentativa de login, senha incorreta!`)
+            logger.info(`Tentativa de login, senha incorreta! Email usuário: ${email}`)
             return res.status(401).json({ message: "Invalid password." });
         }
         const token = generateToken(user.userId, user.username)
