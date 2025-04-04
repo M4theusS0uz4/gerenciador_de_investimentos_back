@@ -73,3 +73,86 @@ Validation Error Count: 1
 2025-04-04 11:52:53 [INFO] : Login realizado! Email: matheusrocham.ms@gmail.com
 2025-04-04 11:58:12 [INFO] : Login realizado! Email: matheusrocham.ms@gmail.com
 2025-04-04 11:59:37 [INFO] : Login realizado! Email: matheusrocham.ms@gmail.com
+2025-04-04 13:45:09 [INFO] : Login realizado! Email: matheus37223@fiec.edu.br
+2025-04-04 13:57:23 [INFO] : Login realizado! Email: matheus37223@fiec.edu.br
+2025-04-04 14:20:23 [INFO] : Login realizado! Email: matheus37223@fiec.edu.br
+2025-04-04 14:24:40 [INFO] : Login realizado! Email: matheus37223@fiec.edu.br
+2025-04-04 14:24:52 [INFO] : Usuário não autenticado | Detalhes usuário: [object Object]
+2025-04-04 14:25:42 [INFO] : Login realizado! Email: matheus37223@fiec.edu.br
+2025-04-04 14:30:12 [INFO] : Login realizado! Email: matheus37223@fiec.edu.br
+2025-04-04 14:32:46 [INFO] : Login realizado! Email: matheus37223@fiec.edu.br
+2025-04-04 14:32:55 [INFO] : Tentativa de acesso com token inválido ou expirado | Detalhes usuário: [object Object]
+2025-04-04 14:32:55 [ERROR] : Erro ao salvar log no banco: 
+Invalid `prisma.log.create()` invocation:
+
+
+error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.
+  -->  schema.prisma:7
+   | 
+ 6 |   provider = "postgresql"
+ 7 |   url      = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+2025-04-04 14:32:55 [ERROR] : Erro ao enviar log ao log-service: Request failed with status code 500
+2025-04-04 14:34:57 [INFO] : Login realizado! Email: matheus37223@fiec.edu.br
+2025-04-04 14:48:44 [INFO] : Error in search user
+2025-04-04 14:49:40 [INFO] : Error in search user
+2025-04-04 14:56:53 [INFO] : Error in search user
+2025-04-04 14:57:38 [INFO] : Error in search user
+2025-04-04 15:00:56 [INFO] : Error in search user
+2025-04-04 15:09:07 [INFO] : Usuário Registrado! Email: matheus37223TESTE@fiec.edu.br
+2025-04-04 15:09:07 [ERROR] : Erro ao salvar log no banco: 
+Invalid `prisma.log.create()` invocation:
+
+
+error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.
+  -->  schema.prisma:7
+   | 
+ 6 |   provider = "postgresql"
+ 7 |   url      = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+2025-04-04 15:11:08 [INFO] : Usuário Registrado! Email: matheus37223@fiec.edu.br
+2025-04-04 15:11:08 [ERROR] : Erro ao salvar log no banco: 
+Invalid `prisma.log.create()` invocation:
+
+
+error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.
+  -->  schema.prisma:7
+   | 
+ 6 |   provider = "postgresql"
+ 7 |   url      = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+2025-04-04 15:18:49 [INFO] : Usuário Registrado! Email: matheus37223@fiec.edu.br
+2025-04-04 15:18:49 [ERROR] : Erro ao salvar log no banco: 
+Invalid `prisma.log.create()` invocation:
+
+
+error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.
+  -->  schema.prisma:7
+   | 
+ 6 |   provider = "postgresql"
+ 7 |   url      = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+2025-04-04 15:19:18 [INFO] : Usuário Registrado! Email: matheus372232@fiec.edu.br
+2025-04-04 15:19:18 [ERROR] : Erro ao salvar log no banco: 
+Invalid `prisma.log.create()` invocation:
+
+
+error: Error validating datasource `db`: the URL must start with the protocol `postgresql://` or `postgres://`.
+  -->  schema.prisma:7
+   | 
+ 6 |   provider = "postgresql"
+ 7 |   url      = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+2025-04-04 15:20:55 [INFO] : Usuário Registrado! Email: matheus372232@fiec.edu.br
+2025-04-04 15:20:56 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-04 15:21:19 [INFO] : Login realizado! Email: matheus372232@fiec.edu.br

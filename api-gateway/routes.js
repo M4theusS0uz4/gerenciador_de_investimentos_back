@@ -1,8 +1,8 @@
 import express from 'express';
 import axios from 'axios';
-import config from '../config/env.js'
-import { createLogJson } from '../services/log-service/utils/createLogJson.js';
-import { getClientInfo } from '../services/log-service/utils/getClientInfo.js';
+import config from '../src/config/env.js'
+import { createLogJson } from '../src/services/log-service/utils/createLogJson.js';
+import { getClientInfo } from '../src/services/log-service/utils/getClientInfo.js';
 import { authenticateToken } from './middlewares/authMiddleware.js'
 
 const authRoutes = express.Router();
@@ -42,9 +42,12 @@ authRoutes.post('/register', async (req, res) => {
 userRoutes.get('/profile', authenticateToken, async (req, res) => {
     try {
         const userJson = req.user;
-        const response = await axios.get(`${USER_SERVICE_URL}/profile`,{
-            data: userJson
-        });
+        const response = await axios.get(`${USER_SERVICE_URL}/profile`, {
+            params: {
+              id_user: userJson.id_user,
+              userUsername: userJson.userUsername,
+            }
+          });
         res.status(response.status).json(response.data);  // Retorna resposta do user-service
     } catch (error) {
         res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
