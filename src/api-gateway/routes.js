@@ -3,6 +3,7 @@ import axios from 'axios';
 import config from '../config/env.js'
 import { createLogJson } from '../services/log-service/utils/createLogJson.js';
 import { getClientInfo } from '../services/log-service/utils/getClientInfo.js';
+import { authenticateToken } from './middlewares/authMiddleware.js'
 
 const authRoutes = express.Router();
 const userRoutes = express.Router();
@@ -38,12 +39,11 @@ authRoutes.post('/register', async (req, res) => {
 });
 
 
-userRoutes.get('/profile', async (req, res) => {
+userRoutes.get('/profile', authenticateToken, async (req, res) => {
     try {
-        const response = await axios.get(`${USER_SERVICE_URL}/profile`, {
-            headers: {
-                Authorization: req.headers.authorization, // Passa o token de autenticação
-            }
+        const userJson = req.user;
+        const response = await axios.get(`${USER_SERVICE_URL}/profile`,{
+            data: userJson
         });
         res.status(response.status).json(response.data);  // Retorna resposta do user-service
     } catch (error) {

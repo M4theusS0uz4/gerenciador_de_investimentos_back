@@ -45,7 +45,7 @@ export const login = async (req, res) => {
             logger.info(`Tentativa de login, senha incorreta! Email usuário: ${email}`)
             return res.status(401).json({ message: "Invalid password." });
         }
-        const token = generateToken(user.userId, user.username)
+        const token = generateToken(user.id_user, user.username)
         logger.info(`Login realizado! Email: ${email}`)
         return res.status(200).json({ data: "Login successful.", token: token});
 
