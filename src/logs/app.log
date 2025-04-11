@@ -156,3 +156,22 @@ Validation Error Count: 1
 2025-04-04 15:20:55 [INFO] : Usuário Registrado! Email: matheus372232@fiec.edu.br
 2025-04-04 15:20:56 [INFO] : Log registrado no banco: User registered sucessfully
 2025-04-04 15:21:19 [INFO] : Login realizado! Email: matheus372232@fiec.edu.br
+2025-04-10 19:29:32 [INFO] : Usuário não autenticado | Detalhes usuário: [object Object]
+2025-04-10 19:33:36 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-10 19:33:36 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-10 19:33:48 [INFO] : Login realizado! ID user: 1
+2025-04-10 19:34:45 [INFO] : Error in search user
+2025-04-10 19:35:07 [INFO] : Error in search user
+2025-04-10 20:00:41 [INFO] : Usuário Registrado! Email: matheusrocham.ms@gmail.com
+2025-04-10 20:00:41 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-10 20:02:20 [INFO] : Usuário Registrado! ID: 1
+2025-04-10 20:02:20 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-10 20:13:30 [INFO] : Login realizado! ID user: 1
+2025-04-10 20:30:05 [ERROR] : Error while changing password.
+2025-04-10 20:31:43 [ERROR] : Error while changing password.
+2025-04-10 20:36:31 [INFO] : Password changed successfully.
+2025-04-10 20:36:31 [INFO] : Log registrado no banco: Password updated
+2025-04-10 20:41:31 [INFO] : Password changed successfully.
+2025-04-10 20:41:31 [INFO] : Log registrado no banco: Password updated
+2025-04-10 20:57:23 [INFO] : Password changed successfully.
+2025-04-10 20:57:23 [INFO] : Log registrado no banco: Password updated

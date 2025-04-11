@@ -14,7 +14,7 @@ export const registerUser = async (req,res) => {
     });
 
     if (newUser) {
-        logger.info(`Usuário Registrado! Email: ${email}`);
+        logger.info(`Usuário Registrado! ID: ${newUser.id_user}`);
         res.status(200).json({ message: "User registered successfully.", id:newUser.id_user });
     } else {
         logger.info(`Erro ao registrar usuário!`);
@@ -25,7 +25,7 @@ export const registerUser = async (req,res) => {
 export const login = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
-        logger.info(`Tentativa de login, email usuário:${email}`)
+        logger.info(`Tentativa de login!`)
         return res.status(400).json({ message: "Email and password are required." });
     }
     try {
@@ -42,11 +42,11 @@ export const login = async (req, res) => {
         const isPasswordValid = await comparePassword(password, user.password);
         
         if (!isPasswordValid) {
-            logger.info(`Tentativa de login, senha incorreta! Email usuário: ${email}`)
+            logger.info(`Tentativa de login, senha incorreta! ID usuárip: ${user.id_user}`)
             return res.status(401).json({ message: "Invalid password." });
         }
         const token = generateToken(user.id_user, user.username)
-        logger.info(`Login realizado! Email: ${email}`)
+        logger.info(`Login realizado! ID user: ${user.id_user}`)
         return res.status(200).json({ data: "Login successful.", token: token});
 
     } catch (error) {
