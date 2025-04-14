@@ -28,6 +28,7 @@ export const profile = async (req, res) =>{
 }
 
 export const changePassword = async (req, res) => {
+    console.log(req.body);
     const { userUsername, id_user,newPassword, userEmail } = req.body;
     if(!newPassword || !userEmail){
       return res.status(400).json({ message: "New password is required and the user's email too." });

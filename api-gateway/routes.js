@@ -17,6 +17,11 @@ const LOG_SERVICE_URL =  `http://localhost:${config.LOG_SERVICE_PORT}`;
 authRoutes.post('/login', async (req, res) => {
     try {
         const response = await axios.post(`${AUTH_SERVICE_URL}/login`, req.body);
+        if(response?.status == 200){
+            const clientInfo = getClientInfo(req); 
+            const logData = createLogJson(response.data.id,'Loggin attemp','User logged sucessfully',clientInfo)
+            await axios.post(`${LOG_SERVICE_URL}/createLog`, logData);
+            }
         res.status(response.status).json(response.data);
     } catch (error) {
         res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
@@ -24,7 +29,7 @@ authRoutes.post('/login', async (req, res) => {
 });
 
 
-authRoutes.post('/register', async (req, res) => {
+authRoutes.post('/registro', async (req, res) => {
     try {
         const response = await axios.post(`${AUTH_SERVICE_URL}/register`, req.body);
         if(response?.status == 200){
@@ -39,7 +44,7 @@ authRoutes.post('/register', async (req, res) => {
 });
 
 
-userRoutes.get('/profile', authenticateToken, async (req, res) => {
+userRoutes.get('/perfil', authenticateToken, async (req, res) => {
     try {
         const userJson = req.user;
         const response = await axios.get(`${USER_SERVICE_URL}/profile`, {
@@ -53,5 +58,22 @@ userRoutes.get('/profile', authenticateToken, async (req, res) => {
         res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
     }
 });
+
+userRoutes.post('/mudarSenha', authenticateToken, async (req,res) => {
+    try{
+        console.log(req.body)
+        const userJson = req.user;
+        const { userEmail, newPassword } = req.body;
+        const response = await axios.post(`${USER_SERVICE_URL}/changePassword`, {userEmail:userEmail, newPassword:newPassword, id_user:userJson.id_user, userusername:userJson.userUsername});
+        if(response?.status == 200){
+            const clientInfo = getClientInfo(req); 
+            const logData = createLogJson(response.data.id,'Attemp to change password',`Password changed | Id:${userJson.id.user}`,clientInfo)
+            await axios.post(`${LOG_SERVICE_URL}/createLog`, logData);
+            }
+        res.status(response.status).json(response.data); 
+    }catch(error){
+        res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
+    }
+})
 
 export default { authRoutes, userRoutes };
