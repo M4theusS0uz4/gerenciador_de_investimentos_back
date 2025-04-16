@@ -3,7 +3,6 @@ import logger from '../../log-service/utils/logger.js'
 import { toLocaleDate } from './../utils/toLocaleDate.js'
 import { comparePassword, hashEmail, hashPassword } from '../../auth-service/utils/authUtils.js'
 
-
 export const profile = async (req, res) =>{
     const {userUsername, id_user} = req.query;
 
@@ -60,7 +59,7 @@ export const changePassword = async (req, res) => {
         where: { id_user: parseInt(id_user, 10) },
         data: { password: hashedPassword },
       });
-  
+      
       logger.info("Password changed successfully.");
       return res.status(200).json({ message: `The password was changed! ID user:${updatedUser.id_user}` });
   
