@@ -24,6 +24,7 @@ authRoutes.post('/login', async (req, res) => {
             }
         res.status(response.status).json(response.data);
     } catch (error) {
+        console.log(error)
         res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
     }
 });
@@ -61,17 +62,18 @@ userRoutes.get('/perfil', authenticateToken, async (req, res) => {
 
 userRoutes.post('/mudarSenha', authenticateToken, async (req,res) => {
     try{
-        console.log(req.body)
+        console.log(req.user)
         const userJson = req.user;
         const { userEmail, newPassword } = req.body;
         const response = await axios.post(`${USER_SERVICE_URL}/changePassword`, {userEmail:userEmail, newPassword:newPassword, id_user:userJson.id_user, userusername:userJson.userUsername});
         if(response?.status == 200){
             const clientInfo = getClientInfo(req); 
-            const logData = createLogJson(response.data.id,'Attemp to change password',`Password changed | Id:${userJson.id.user}`,clientInfo)
+            const logData = createLogJson(response.data.id,'Attemp to change password',`Password changed | Id:${userJson.id_user}`,clientInfo)
             await axios.post(`${LOG_SERVICE_URL}/createLog`, logData);
             }
         res.status(response.status).json(response.data); 
     }catch(error){
+        console.log(error)
         res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
     }
 })

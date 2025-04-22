@@ -13,7 +13,7 @@ export const config = {
     USER_EMAIL: process.env.USER_EMAIL,
     PASS_EMAIL: process.env.PASS_EMAIL,
     FROM_EMAIL: process.env.FROM_EMAIL,
-    PORT_EMAIL: process.env.PORT_EMAIL
+    PORT_EMAIL: process.env.PORT_EMAIL || 587,
 };
 
 export default config;

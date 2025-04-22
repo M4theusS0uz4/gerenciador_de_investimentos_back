@@ -1,6 +1,7 @@
 import { hashPassword, hashEmail, comparePassword, generateToken } from '../utils/authUtils.js';
 import prisma from '../../../prisma/prismaClient.js';
 import logger from '../../log-service/utils/logger.js'
+import { sendEmailWelcome } from '../../email-service/emailService.js'
 
 export const registerUser = async (req,res) => {
     const {username, password, email} = req.body;
@@ -15,6 +16,7 @@ export const registerUser = async (req,res) => {
 
     if (newUser) {
         logger.info(`Usuário Registrado! ID: ${newUser.id_user}`);
+        sendEmailWelcome(newUser.username,newUser.email)
         res.status(200).json({ message: "User registered successfully.", id:newUser.id_user });
     } else {
         logger.info(`Erro ao registrar usuário!`);

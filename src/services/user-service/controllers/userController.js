@@ -2,7 +2,7 @@ import prisma from '../../../prisma/prismaClient.js'
 import logger from '../../log-service/utils/logger.js'
 import { toLocaleDate } from './../utils/toLocaleDate.js'
 import { comparePassword, hashEmail, hashPassword } from '../../auth-service/utils/authUtils.js'
-import { sendEmail } from '../../email-service/emailService.js'
+import { sendEmailPasswordChanged } from '../../email-service/emailService.js'
 
 export const profile = async (req, res) =>{
     const {userUsername, id_user} = req.query;
@@ -28,7 +28,6 @@ export const profile = async (req, res) =>{
 }
 
 export const changePassword = async (req, res) => {
-    console.log(req.body);
     const { userUsername, id_user,newPassword, userEmail } = req.body;
     if(!newPassword || !userEmail){
       return res.status(400).json({ message: "New password is required and the user's email too." });
@@ -62,7 +61,8 @@ export const changePassword = async (req, res) => {
       });
       
       logger.info("Password changed successfully.");
-      sendEmail(userEmail, "")
+      console.log(user.username)
+      await sendEmailPasswordChanged(user.username,userEmail);
       return res.status(200).json({ message: `The password was changed! ID user:${updatedUser.id_user}` });
   
     } catch (error) {
