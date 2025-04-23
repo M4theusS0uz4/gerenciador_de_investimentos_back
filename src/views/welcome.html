@@ -4,48 +4,34 @@
     <meta charset="UTF-8" />
     <title>Bem-vindo</title>
     <style>
-        /* Estilo para as imagens */
-        img {
-            vertical-align: middle;
-        }
-        /* Alinhamento do botão e imagem */
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 25px;
-        }
-        /* Estilos do corpo */
         body {
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #e0e0e0;
             font-family: Arial, sans-serif;
         }
-        /* Container do e-mail */
         .email-container {
             max-width: 600px;
             margin: auto;
             background-color: #ffffff;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #ddd;
         }
-        /* Corpo do e-mail */
         .email-body {
             padding: 30px;
         }
         h2 {
             color: #004080;
             font-size: 22px;
+            margin-top: 0;
         }
         p {
             color: #333333;
             font-size: 16px;
             line-height: 1.5;
         }
-        /* Estilos do rodapé */
         .footer {
             background-color: #e0e0e0;
             padding: 15px;
@@ -53,7 +39,6 @@
             font-size: 12px;
             color: #666;
         }
-        /* Botão */
         .button {
             padding: 12px 24px;
             background-color: #004080;
@@ -62,8 +47,8 @@
             border-radius: 6px;
             font-weight: bold;
             font-size: 16px;
+            display: inline-block;
         }
-        /* Logo */
         .logo {
             max-height: 70px;
             margin-left: 15px;
@@ -73,21 +58,24 @@
 </head>
 <body>
 <div class="email-container">
-
-    <!-- Corpo do e-mail -->
     <div class="email-body">
         <h2>Olá, {{nome}}!</h2>
         <p>Seja bem-vindo à nossa plataforma! Estamos muito felizes em ter você por aqui.</p>
         <p>Caso tenha qualquer dúvida, nossa equipe está pronta para ajudar.</p>
 
-        <!-- Botão e imagem lado a lado -->
-        <div class="button-container">
-            <a href="{{link}}" class="button">Acessar sua conta</a>
-            <img src="https://raw.githubusercontent.com/M4theusS0uz4/gerenciador_investimentos_front/master/public/Logo.png" alt="Logo da Empresa" class="logo" />
-        </div>
+        <!-- Botão e logo em tabela -->
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top: 25px;">
+            <tr>
+                <td align="left">
+                    <a href="{{link}}" class="button">Acessar sua conta</a>
+                </td>
+                <td align="right">
+                    <img src="https://raw.githubusercontent.com/M4theusS0uz4/gerenciador_investimentos_front/master/public/Logo.png" alt="Logo da Empresa" class="logo" />
+                </td>
+            </tr>
+        </table>
     </div>
 
-    <!-- Rodapé -->
     <div class="footer">
         © {{ano}} Personal Investment. Todos os direitos reservados.
     </div>

@@ -245,3 +245,34 @@ Validation Error Count: 1
 2025-04-22 14:46:23 [INFO] : Password changed successfully.
 2025-04-22 14:46:26 [INFO] : Email sent sucessfully!
 2025-04-22 14:46:26 [INFO] : Log registrado no banco: Password changed | Id:2
+2025-04-23 10:11:35 [INFO] : Tentativa de login, senha incorreta! ID usuário: 2
+2025-04-23 10:11:46 [INFO] : Login realizado! ID user: 2
+2025-04-23 10:11:46 [INFO] : Log registrado no banco: User logged sucessfully
+2025-04-23 10:12:57 [INFO] : Login realizado! ID user: 2
+2025-04-23 10:13:42 [INFO] : Login realizado! ID user: 2
+2025-04-23 10:14:43 [INFO] : Login realizado! ID user: 2
+2025-04-23 10:14:44 [INFO] : Log registrado no banco: User logged sucessfully
+2025-04-23 10:29:09 [INFO] : Usuário Registrado! ID: 3
+2025-04-23 10:29:10 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-23 10:29:11 [INFO] : Error sending email!
+2025-04-23 10:38:25 [INFO] : Usuário Registrado! ID: 1
+2025-04-23 10:38:25 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-23 10:38:26 [INFO] : Error sending email!
+2025-04-23 10:40:57 [INFO] : Usuário Registrado! ID: 1
+2025-04-23 10:40:57 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-23 10:40:58 [INFO] : Error sending email!
+2025-04-23 10:41:32 [INFO] : Usuário Registrado! ID: 1
+2025-04-23 10:41:32 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-23 10:41:33 [INFO] : Error sending email!
+2025-04-23 10:42:23 [INFO] : Usuário Registrado! ID: 1
+2025-04-23 10:42:23 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-23 10:42:24 [INFO] : Error sending email!
+2025-04-23 10:43:15 [INFO] : Usuário Registrado! ID: 1
+2025-04-23 10:43:15 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-23 10:43:16 [INFO] : Error sending email!
+2025-04-23 10:43:55 [INFO] : Usuário Registrado! ID: 1
+2025-04-23 10:43:55 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-23 10:43:58 [INFO] : Email sent sucessfully!
+2025-04-23 10:48:42 [INFO] : Usuário Registrado! ID: 1
+2025-04-23 10:48:42 [INFO] : Log registrado no banco: User registered sucessfully
+2025-04-23 10:48:45 [INFO] : Email sent sucessfully!

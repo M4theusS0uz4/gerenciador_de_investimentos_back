@@ -44,7 +44,7 @@ export const changePassword = async (req, res) => {
         logger.info("User not found.");
         return res.status(404).json({ message: "User not found." });
       }
-      if( hashEmail(userEmail) !== user.email){
+      if(hashEmail(userEmail) !== user.email){
         logger.info(`Password changed attemp! ID user:${user.id_user}`)
         return res.status(401).json({ message: "This email informed isn't the same of user's email." });
       }
@@ -71,3 +71,30 @@ export const changePassword = async (req, res) => {
       return res.status(500).json({ message: "Internal server error." });
     }
   };
+
+export const changeUsername = async (req,res) =>{
+  const { newUsername, currentUsername, id_user } = req.body;
+  
+  if(!newUsername || !currentUsername){
+    return res.status(401).json({message:"Username can't be empty ou null."})
+  }
+
+  const user = await findUnique({
+    where: {id_user: id_user}
+  });
+
+  if (!user) {
+    logger.info("User not found.");
+    return res.status(404).json({ message: "User not found." });
+  }
+
+  const userUpdated = await prisma.user.update({
+    where: {id_user: id_user},
+    data: {username: newUsername}
+  });
+
+  if(userUpdated.username == newUsername){
+    logger.info(`Username updated | ID User:${id_user}`)
+    return res.status(200).json({message:"Username updated sucessfully."})
+  }
+}

@@ -42,6 +42,7 @@ export const sendEmailWelcome = async (username,userEmail) => {
         logger.info("Email sent sucessfully!")
         return;
     }catch(error){
+        console.log(error)
         logger.info("Error sending email!")
         return;
     }

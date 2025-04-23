@@ -16,7 +16,7 @@ export const registerUser = async (req,res) => {
 
     if (newUser) {
         logger.info(`Usuário Registrado! ID: ${newUser.id_user}`);
-        sendEmailWelcome(newUser.username,newUser.email)
+        sendEmailWelcome(newUser.username,email)
         res.status(200).json({ message: "User registered successfully.", id:newUser.id_user });
     } else {
         logger.info(`Erro ao registrar usuário!`);
@@ -44,12 +44,12 @@ export const login = async (req, res) => {
         const isPasswordValid = await comparePassword(password, user.password);
         
         if (!isPasswordValid) {
-            logger.info(`Tentativa de login, senha incorreta! ID usuárip: ${user.id_user}`)
+            logger.info(`Tentativa de login, senha incorreta! ID usuário: ${user.id_user}`)
             return res.status(401).json({ message: "Invalid password." });
         }
         const token = generateToken(user.id_user, user.username)
         logger.info(`Login realizado! ID user: ${user.id_user}`)
-        return res.status(200).json({ data: "Login successful.", token: token});
+        return res.status(200).json({id:user.id_user, token: token});
 
     } catch (error) {
         logger.info("Erro ao realizar login! " + error)
