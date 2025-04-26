@@ -4,7 +4,7 @@ import logRoutes from './routes/logRoutes.js'
 
 const app = express();
 
-const PORT = config.LOG_SERVICE_PORT || 3003;
+const PORT = config.LOG_SERVICE_PORT;
 
 app.use(express.json())
 

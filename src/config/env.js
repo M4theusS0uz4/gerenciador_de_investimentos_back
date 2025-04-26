@@ -8,6 +8,7 @@ export const config = {
     AUTH_SERVICE_PORT: process.env.AUTH_SERVICE_PORT,
     USER_SERVICE_PORT: process.env.USER_SERVICE_PORT,
     LOG_SERVICE_PORT: process.env.LOG_SERVICE_PORT,
+    INVESTMENT_SERVICE_PORT: process.env.INVESTMENT_SERVICE_PORT,
     JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN,
     DATABASE_URL: process.env.DATABASE_URL,
     USER_EMAIL: process.env.USER_EMAIL,

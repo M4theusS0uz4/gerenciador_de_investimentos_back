@@ -7,11 +7,14 @@ import { authenticateToken } from './middlewares/authMiddleware.js'
 
 const authRoutes = express.Router();
 const userRoutes = express.Router();
+const investmentRoutes = express.Router();
+
 
 
 const AUTH_SERVICE_URL = `http://localhost:${config.AUTH_SERVICE_PORT}`;  
 const USER_SERVICE_URL = `http://localhost:${config.USER_SERVICE_PORT}`;
 const LOG_SERVICE_URL =  `http://localhost:${config.LOG_SERVICE_PORT}`;
+const INVESTMENT_SERVICE_URL =  `http://localhost:${config.INVESTMENT_SERVICE_PORT}`;
 
 
 authRoutes.post('/login', async (req, res) => {
@@ -77,4 +80,15 @@ userRoutes.post('/mudarSenha', authenticateToken, async (req,res) => {
     }
 })
 
-export default { authRoutes, userRoutes };
+investmentRoutes.post('/criarInvestimento', authenticateToken, async (req,res) =>{
+    try {
+        const userJson = req.user;
+        const {name,targetAmount, objective} = req.body;
+        const amount = req.body.amount ? req.body.amount : 0;
+        const response = await axios.post(`${INVESTMENT_SERVICE_URL}/createInvestment`, {id_user: userJson.id_user, amount:amount,name: name,targetAmount:targetAmount, objective:objective});
+        res.status(response.status).json(response.data);  
+    } catch (error) {
+        res.status(error.response?.status || 500).json({ message: error.response?.data.message || 'Internal Server Error' });
+    }
+})
+export default { authRoutes, userRoutes, investmentRoutes };

@@ -13,6 +13,7 @@ app.use(express.json());
 // Routes services
 app.use('/auth', routes.authRoutes); 
 app.use('/user', routes.userRoutes);
+app.use('/investment', routes.investmentRoutes);
 
 // If an error occurs, this middleware handles it
 app.use(errorHandler)
