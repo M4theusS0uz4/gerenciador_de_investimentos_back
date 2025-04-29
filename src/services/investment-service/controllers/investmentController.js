@@ -7,7 +7,7 @@ export const createInvestment = async (req,res) => {
         res.status(400).json({message: "The fields must filled"})
     }
     const urlInvestmentImg = `${id_user}_${name}`;
-    console.log(urlInvestmentImg)
+    
     try{
     const newInvestment = await prisma.investment.create({
         data:{
